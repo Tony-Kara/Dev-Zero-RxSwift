@@ -9,21 +9,39 @@
 /* Begin PBXBuildFile section */
 		9682D2092A665D8300CE5C24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2082A665D8300CE5C24 /* AppDelegate.swift */; };
 		9682D20B2A665D8300CE5C24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D20A2A665D8300CE5C24 /* SceneDelegate.swift */; };
-		9682D20D2A665D8300CE5C24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D20C2A665D8300CE5C24 /* ViewController.swift */; };
-		9682D2102A665D8300CE5C24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9682D20E2A665D8300CE5C24 /* Main.storyboard */; };
 		9682D2122A665D8600CE5C24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9682D2112A665D8600CE5C24 /* Assets.xcassets */; };
 		9682D2152A665D8600CE5C24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9682D2132A665D8600CE5C24 /* LaunchScreen.storyboard */; };
+		9682D21E2A665EE200CE5C24 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D21D2A665EE200CE5C24 /* Model.swift */; };
+		9682D2212A665F3100CE5C24 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2202A665F3100CE5C24 /* ApiService.swift */; };
+		9682D2282A665FBC00CE5C24 /* PizzaListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2272A665FBC00CE5C24 /* PizzaListVC.swift */; };
+		9682D22A2A66609900CE5C24 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2292A66609900CE5C24 /* TabBarController.swift */; };
+		9682D22C2A6660B900CE5C24 /* ProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D22B2A6660B900CE5C24 /* ProfileInfoVC.swift */; };
+		9682D22E2A6662C400CE5C24 /* PizzaListHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D22D2A6662C400CE5C24 /* PizzaListHomeView.swift */; };
+		9682D2302A66651700CE5C24 /* BannerCellFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D22F2A66651700CE5C24 /* BannerCellFlowLayout.swift */; };
+		9682D2322A666AC800CE5C24 /* MenuCatCellFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2312A666AC800CE5C24 /* MenuCatCellFlowLayout.swift */; };
+		9682D2342A66849D00CE5C24 /* PizzaInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2332A66849D00CE5C24 /* PizzaInfoTableViewCell.swift */; };
+		9682D2372A6687D400CE5C24 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2362A6687D400CE5C24 /* Extensions.swift */; };
+		9682D23A2A669CD600CE5C24 /* PizzaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2392A669CD600CE5C24 /* PizzaViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9682D2052A665D8300CE5C24 /* Dev-Zero-RxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dev-Zero-RxSwift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9682D2082A665D8300CE5C24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9682D20A2A665D8300CE5C24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9682D20C2A665D8300CE5C24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9682D20F2A665D8300CE5C24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9682D2112A665D8600CE5C24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9682D2142A665D8600CE5C24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9682D2162A665D8600CE5C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9682D21D2A665EE200CE5C24 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		9682D2202A665F3100CE5C24 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		9682D2272A665FBC00CE5C24 /* PizzaListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaListVC.swift; sourceTree = "<group>"; };
+		9682D2292A66609900CE5C24 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		9682D22B2A6660B900CE5C24 /* ProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoVC.swift; sourceTree = "<group>"; };
+		9682D22D2A6662C400CE5C24 /* PizzaListHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaListHomeView.swift; sourceTree = "<group>"; };
+		9682D22F2A66651700CE5C24 /* BannerCellFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCellFlowLayout.swift; sourceTree = "<group>"; };
+		9682D2312A666AC800CE5C24 /* MenuCatCellFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCatCellFlowLayout.swift; sourceTree = "<group>"; };
+		9682D2332A66849D00CE5C24 /* PizzaInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaInfoTableViewCell.swift; sourceTree = "<group>"; };
+		9682D2362A6687D400CE5C24 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9682D2392A669CD600CE5C24 /* PizzaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +76,78 @@
 			children = (
 				9682D2082A665D8300CE5C24 /* AppDelegate.swift */,
 				9682D20A2A665D8300CE5C24 /* SceneDelegate.swift */,
-				9682D20C2A665D8300CE5C24 /* ViewController.swift */,
-				9682D20E2A665D8300CE5C24 /* Main.storyboard */,
+				9682D21C2A665EE100CE5C24 /* Model */,
+				9682D2222A665F5200CE5C24 /* View */,
+				9682D2382A669C8C00CE5C24 /* ViewModel */,
+				9682D21F2A665F3100CE5C24 /* Network */,
+				9682D2352A6687D400CE5C24 /* Helpers */,
 				9682D2112A665D8600CE5C24 /* Assets.xcassets */,
 				9682D2132A665D8600CE5C24 /* LaunchScreen.storyboard */,
 				9682D2162A665D8600CE5C24 /* Info.plist */,
 			);
 			path = "Dev-Zero-RxSwift";
+			sourceTree = "<group>";
+		};
+		9682D21C2A665EE100CE5C24 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9682D21D2A665EE200CE5C24 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9682D21F2A665F3100CE5C24 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9682D2202A665F3100CE5C24 /* ApiService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9682D2222A665F5200CE5C24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9682D2262A665F9E00CE5C24 /* Cell */,
+				9682D2252A665F8400CE5C24 /* ViewController */,
+				9682D22D2A6662C400CE5C24 /* PizzaListHomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9682D2252A665F8400CE5C24 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9682D2272A665FBC00CE5C24 /* PizzaListVC.swift */,
+				9682D22B2A6660B900CE5C24 /* ProfileInfoVC.swift */,
+				9682D2292A66609900CE5C24 /* TabBarController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9682D2262A665F9E00CE5C24 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9682D22F2A66651700CE5C24 /* BannerCellFlowLayout.swift */,
+				9682D2312A666AC800CE5C24 /* MenuCatCellFlowLayout.swift */,
+				9682D2332A66849D00CE5C24 /* PizzaInfoTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9682D2352A6687D400CE5C24 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9682D2362A6687D400CE5C24 /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9682D2382A669C8C00CE5C24 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9682D2392A669CD600CE5C24 /* PizzaViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +210,6 @@
 			files = (
 				9682D2152A665D8600CE5C24 /* LaunchScreen.storyboard in Resources */,
 				9682D2122A665D8600CE5C24 /* Assets.xcassets in Resources */,
-				9682D2102A665D8300CE5C24 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +220,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9682D20D2A665D8300CE5C24 /* ViewController.swift in Sources */,
+				9682D2282A665FBC00CE5C24 /* PizzaListVC.swift in Sources */,
+				9682D2342A66849D00CE5C24 /* PizzaInfoTableViewCell.swift in Sources */,
+				9682D2322A666AC800CE5C24 /* MenuCatCellFlowLayout.swift in Sources */,
+				9682D2302A66651700CE5C24 /* BannerCellFlowLayout.swift in Sources */,
+				9682D23A2A669CD600CE5C24 /* PizzaViewModel.swift in Sources */,
+				9682D22A2A66609900CE5C24 /* TabBarController.swift in Sources */,
+				9682D22E2A6662C400CE5C24 /* PizzaListHomeView.swift in Sources */,
+				9682D22C2A6660B900CE5C24 /* ProfileInfoVC.swift in Sources */,
+				9682D2372A6687D400CE5C24 /* Extensions.swift in Sources */,
+				9682D2212A665F3100CE5C24 /* ApiService.swift in Sources */,
 				9682D2092A665D8300CE5C24 /* AppDelegate.swift in Sources */,
 				9682D20B2A665D8300CE5C24 /* SceneDelegate.swift in Sources */,
+				9682D21E2A665EE200CE5C24 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9682D20E2A665D8300CE5C24 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9682D20F2A665D8300CE5C24 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9682D2132A665D8600CE5C24 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +376,7 @@
 				INFOPLIST_FILE = "Dev-Zero-RxSwift/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +404,7 @@
 				INFOPLIST_FILE = "Dev-Zero-RxSwift/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
