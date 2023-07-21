@@ -47,10 +47,12 @@ final class PizzaInfoTableViewCell: UITableViewCell {
     }()
     
     private lazy var pizzaDescriptionLabel: UILabel = {
-       let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-       label.translatesAutoresizingMaskIntoConstraints = false
-       return label
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textColor = .hammer_TextColor_pizzaDescription
+        return label
     }()
     
     
@@ -79,53 +81,47 @@ final class PizzaInfoTableViewCell: UITableViewCell {
     }
     
     private func setUpSubviews() {
-        
-//        contentView.addSubview(containerView)
-//        [pizzaNameLabel, pizzaImageView, pizzaDescriptionLabel, pizzaPriceView].forEach {
-//            containerView.addSubview($0)
-//        }
-//        pizzaPriceView.addSubview(pizzaPriceLabel)
-        contentView.addSubview(pizzaNameLabel)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(containerView)
+        [pizzaNameLabel, pizzaImageView , pizzaDescriptionLabel , pizzaPriceView ].forEach {
+            containerView.addSubview($0)
+        }
+        pizzaPriceView.addSubview(pizzaPriceLabel)
+       
         setupInitialLayout()
     }
     
     private func setupInitialLayout() {
         
         NSLayoutConstraint.activate([
-            pizzaNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            pizzaNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+
+            pizzaImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 24),
+            pizzaImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            pizzaImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -24),
+            pizzaImageView.heightAnchor.constraint(equalToConstant: 132),
+            pizzaImageView.widthAnchor.constraint(equalToConstant: 132),
+
+            pizzaNameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
+            pizzaNameLabel.leadingAnchor.constraint(equalTo: pizzaImageView.trailingAnchor, constant: 32),
+
+            pizzaDescriptionLabel.topAnchor.constraint(equalTo: pizzaNameLabel.bottomAnchor, constant: 8),
+            pizzaDescriptionLabel.leadingAnchor.constraint(equalTo: pizzaNameLabel.leadingAnchor),
+            pizzaDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
+
+            pizzaPriceView.topAnchor.constraint(equalTo: pizzaDescriptionLabel.bottomAnchor, constant: 16),
+            pizzaPriceView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
+            pizzaPriceView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -24),
+            pizzaPriceView.heightAnchor.constraint(equalToConstant: 32),
+            pizzaPriceView.widthAnchor.constraint(equalToConstant: 87),
+
+            pizzaPriceLabel.centerXAnchor.constraint(equalTo: pizzaPriceView.centerXAnchor),
+            pizzaPriceLabel.centerYAnchor.constraint(equalTo: pizzaPriceView.centerYAnchor)
         ])
-//        NSLayoutConstraint.activate([
-//
-//            containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
-//            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-//            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-//            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-//
-//            pizzaImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 24),
-//            pizzaImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-//            pizzaImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -24),
-//            pizzaImageView.heightAnchor.constraint(equalToConstant: 32),
-//            pizzaImageView.widthAnchor.constraint(equalToConstant: 32),
-//
-//            pizzaNameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
-//            pizzaNameLabel.leadingAnchor.constraint(equalTo: pizzaImageView.trailingAnchor, constant: 32),
-//
-//            pizzaDescriptionLabel.topAnchor.constraint(equalTo: pizzaNameLabel.bottomAnchor, constant: 8),
-//            pizzaDescriptionLabel.leadingAnchor.constraint(equalTo: pizzaNameLabel.leadingAnchor),
-//            pizzaDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-//
-//            pizzaPriceView.topAnchor.constraint(equalTo: pizzaDescriptionLabel.bottomAnchor, constant: 16),
-//            pizzaPriceView.trailingAnchor.constraint(equalTo: pizzaDescriptionLabel.trailingAnchor),
-//            pizzaPriceView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -24),
-//            pizzaPriceView.heightAnchor.constraint(equalToConstant: 32),
-//            pizzaPriceView.widthAnchor.constraint(equalToConstant: 87),
-//
-//            pizzaPriceLabel.centerXAnchor.constraint(equalTo: pizzaPriceView.centerXAnchor),
-//            pizzaPriceLabel.centerYAnchor.constraint(equalTo: pizzaPriceView.centerYAnchor)
-//        ])
-        
-        
     }
     
     //MARK: - Public Function
@@ -141,9 +137,7 @@ final class PizzaInfoTableViewCell: UITableViewCell {
     
     
     func configure(model: MenuItem) {
-        print("1111-10", model.name)
         pizzaNameLabel.text = model.name
-        print("1111-11", pizzaNameLabel.text)
     }
     
 }

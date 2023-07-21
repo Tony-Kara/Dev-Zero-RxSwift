@@ -8,8 +8,13 @@
 import Foundation
 import UIKit
 
+protocol PizzaListHomeViewDelegate: AnyObject {
+    func tapToNextScreen()
+}
 
 final class PizzaListHomeView: UIView {
+    
+    weak var delegate: PizzaListHomeViewDelegate?
     
     // MARK: - Private properties
     
@@ -21,9 +26,39 @@ final class PizzaListHomeView: UIView {
         return view
     }()
     
+    private lazy var tapWithClosureBtn: UIButton = {
+        let button = UIButton()
+        button.setTitle("Uses Closure!", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        button.backgroundColor = .yellow
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private lazy var tapWithDelegateBtn: UIButton = {
+        let button = UIButton()
+        button.setTitle("Uses Delegate!", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        button.backgroundColor = .yellow
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    @objc func pressedAction(sender: UIButton) {
+        onNextScreenTapped?()
+    }
+    
+    @objc func pressedActionDel(sender: UIButton) {
+        delegate?.tapToNextScreen()
+    }
+    
     // MARK: - Public properties
     
-    lazy var bannerViewCollection: UICollectionView = {
+    var onNextScreenTapped : (() -> ())?
+    
+     lazy var bannerViewCollection: UICollectionView = {
         let layout = BannerCellFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
@@ -50,19 +85,7 @@ final class PizzaListHomeView: UIView {
         return tableView
     }()
     
-    let tapToNextScreenBtn: UIButton = {
-        let button = UIButton()
-        button.setTitle("Tap!!", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
-        button.backgroundColor = .clear
-        button.layer.cornerRadius = 10
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    @objc func pressedAction(sender: UIButton) {
-        print("Button \(sender.tag) clicked")
-    }
+  
     
     //MARK: - Init
     
@@ -70,7 +93,8 @@ final class PizzaListHomeView: UIView {
         super.init(frame: frame)
         backgroundColor = .white
         setupInitialLayout()
-        tapToNextScreenBtn.addTarget(self, action: #selector(self.pressedAction(sender:)), for: .touchUpInside)
+        tapWithClosureBtn.addTarget(self, action: #selector(self.pressedAction(sender:)), for: .touchUpInside)
+        tapWithDelegateBtn.addTarget(self, action: #selector(self.pressedActionDel(sender:)), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -80,46 +104,44 @@ final class PizzaListHomeView: UIView {
     // MARK: - Private functions
     
     private func setupInitialLayout() {
-    //    addSubview(backgroundView)
-        addSubview(tableView)
+        addSubview(backgroundView)
+        
+        [bannerViewCollection,menuCatergoryCollectionView, tapWithClosureBtn,tapWithDelegateBtn, tableView].forEach { backgroundView.addSubview($0) }
+        
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            
+            backgroundView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
+            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            bannerViewCollection.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 5),
+            bannerViewCollection.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
+            bannerViewCollection.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
+            bannerViewCollection.heightAnchor.constraint(equalToConstant: 112),
+            bannerViewCollection.widthAnchor.constraint(equalToConstant: 300),
+            
+            menuCatergoryCollectionView.topAnchor.constraint(equalTo: bannerViewCollection.bottomAnchor, constant: 24),
+            menuCatergoryCollectionView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
+            menuCatergoryCollectionView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
+            menuCatergoryCollectionView.heightAnchor.constraint(equalToConstant: 32),
+            menuCatergoryCollectionView.widthAnchor.constraint(equalToConstant: 88),
+            
+            tapWithClosureBtn.topAnchor.constraint(equalTo: menuCatergoryCollectionView.bottomAnchor, constant: 24),
+            tapWithClosureBtn.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 10),
+            tapWithClosureBtn.heightAnchor.constraint(equalToConstant: 45),
+            tapWithClosureBtn.widthAnchor.constraint(equalToConstant: 130),
+            
+            tapWithDelegateBtn.topAnchor.constraint(equalTo: menuCatergoryCollectionView.bottomAnchor, constant: 24),
+            tapWithDelegateBtn.leadingAnchor.constraint(equalTo: tapWithClosureBtn.trailingAnchor, constant: 10),
+            tapWithDelegateBtn.heightAnchor.constraint(equalToConstant: 45),
+            tapWithDelegateBtn.widthAnchor.constraint(equalToConstant: 130),
+            
+            tableView.topAnchor.constraint(equalTo: tapWithClosureBtn.bottomAnchor, constant: 24),
+            tableView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -15),
+            tableView.widthAnchor.constraint(equalTo: backgroundView.widthAnchor),
+            tableView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor)
         ])
-        
-//        [bannerViewCollection,menuCatergoryCollectionView, tapToNextScreenBtn, tableView].forEach { backgroundView.addSubview($0) }
-        
-//        NSLayoutConstraint.activate([
-//
-//            backgroundView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
-//            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//
-//            bannerViewCollection.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 5),
-//            bannerViewCollection.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
-//            bannerViewCollection.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
-//            bannerViewCollection.heightAnchor.constraint(equalToConstant: 112),
-//            bannerViewCollection.widthAnchor.constraint(equalToConstant: 300),
-//
-//            menuCatergoryCollectionView.topAnchor.constraint(equalTo: bannerViewCollection.bottomAnchor, constant: 24),
-//            menuCatergoryCollectionView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
-//            menuCatergoryCollectionView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
-//            menuCatergoryCollectionView.heightAnchor.constraint(equalToConstant: 32),
-//            menuCatergoryCollectionView.widthAnchor.constraint(equalToConstant: 88),
-//
-//            tapToNextScreenBtn.topAnchor.constraint(equalTo: menuCatergoryCollectionView.bottomAnchor, constant: 24),
-//            tapToNextScreenBtn.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 10),
-//            tapToNextScreenBtn.heightAnchor.constraint(equalToConstant: 45),
-//            tapToNextScreenBtn.widthAnchor.constraint(equalToConstant: 90),
-//
-//            tableView.topAnchor.constraint(equalTo: tapToNextScreenBtn.bottomAnchor, constant: 24),
-//            tableView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -15),
-//            tableView.widthAnchor.constraint(equalTo: backgroundView.widthAnchor),
-//            tableView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor)
-//        ])
         
     }
     

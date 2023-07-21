@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 final class PizzaListVC: UIViewController {
+   
     
     private let rootView = PizzaListHomeView()
     let pizzaViewModel = PizzaViewModel()
@@ -20,12 +21,7 @@ final class PizzaListVC: UIViewController {
             }
         }
     }
-    var productImage = UIImage()
-    var productImageOnChange: UIImage? {
-        didSet {
-            productImage = productImageOnChange ?? UIImage()
-        }
-    }
+    
     
     override func loadView() {
         super.loadView()
@@ -34,12 +30,21 @@ final class PizzaListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        didTapNextBtn()
+        rootView.delegate = self
         pizzaViewModel.loadMenuItems { items in
             self.menuItems = items
         }
         rootView.tableView.register(PizzaInfoTableViewCell.self, forCellReuseIdentifier: PizzaInfoTableViewCell.identifier)
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
+    }
+    
+    private func didTapNextBtn() {
+        rootView.onNextScreenTapped =  {
+            let profileInfoListVC = ProfileInfoVC()
+            self.navigationController?.pushViewController(profileInfoListVC, animated: true)
+        }
     }
     
 }
@@ -53,7 +58,10 @@ extension PizzaListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PizzaInfoTableViewCell.identifier, for: indexPath) as! PizzaInfoTableViewCell
             let menuItem = self.menuItems[indexPath.row]
-            cell.configure(model: menuItem)
+        guard let imageUrl = menuItem.image else { return cell }
+        pizzaViewModel.getProductImage(with: imageUrl) { itemImage in
+            cell.configure(model: menuItem, image: itemImage)
+        }
         return cell
     }
 }
@@ -63,6 +71,13 @@ extension PizzaListVC : UITableViewDelegate {
     
     
     
+}
+
+extension PizzaListVC: PizzaListHomeViewDelegate {
+    func tapToNextScreen() {
+        let profileInfoListVC = ProfileInfoVC()
+       self.navigationController?.pushViewController(profileInfoListVC, animated: true)
+    }
 }
 
 
