@@ -22,6 +22,7 @@
 		9682D2342A66849D00CE5C24 /* PizzaInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2332A66849D00CE5C24 /* PizzaInfoTableViewCell.swift */; };
 		9682D2372A6687D400CE5C24 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2362A6687D400CE5C24 /* Extensions.swift */; };
 		9682D23A2A669CD600CE5C24 /* PizzaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2392A669CD600CE5C24 /* PizzaViewModel.swift */; };
+		96CDD5D12A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD5D02A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		9682D2332A66849D00CE5C24 /* PizzaInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaInfoTableViewCell.swift; sourceTree = "<group>"; };
 		9682D2362A6687D400CE5C24 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9682D2392A669CD600CE5C24 /* PizzaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewModel.swift; sourceTree = "<group>"; };
+		96CDD5D02A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementBannerCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				9682D22F2A66651700CE5C24 /* BannerCellFlowLayout.swift */,
+				96CDD5D02A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift */,
 				9682D2312A666AC800CE5C24 /* MenuCatCellFlowLayout.swift */,
 				9682D2332A66849D00CE5C24 /* PizzaInfoTableViewCell.swift */,
 			);
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9682D2282A665FBC00CE5C24 /* PizzaListVC.swift in Sources */,
+				96CDD5D12A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift in Sources */,
 				9682D2342A66849D00CE5C24 /* PizzaInfoTableViewCell.swift in Sources */,
 				9682D2322A666AC800CE5C24 /* MenuCatCellFlowLayout.swift in Sources */,
 				9682D2302A66651700CE5C24 /* BannerCellFlowLayout.swift in Sources */,

@@ -10,18 +10,15 @@ import UIKit
 
  class PizzaViewModel {
   
-    let apiService = ApiService()
+   let apiService = ApiService()
    var menuItems: [MenuItem] = [MenuItem]()
-//    init() {
-//        loadMenuItems()
-//        print("1111-4", self.menuItems)
-//    }
+   var bannerImages : [UIImage?] = [UIImage(named: "Banner1"), UIImage(named: "Banner2"), UIImage(named: "Banner3")]
+
     
      func loadMenuItems(_ completion: @escaping ([MenuItem]) -> Void) {
         apiService.getMenu { items in
             self.menuItems = items
             completion(items)
-            print("1111-4", self.menuItems)
         }
     }
     

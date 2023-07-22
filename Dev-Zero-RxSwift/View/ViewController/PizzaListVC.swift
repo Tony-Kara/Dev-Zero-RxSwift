@@ -38,6 +38,9 @@ final class PizzaListVC: UIViewController {
         rootView.tableView.register(PizzaInfoTableViewCell.self, forCellReuseIdentifier: PizzaInfoTableViewCell.identifier)
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
+        rootView.bannerViewCollection.register(AdvertisementBannerCollectionCell.self, forCellWithReuseIdentifier: AdvertisementBannerCollectionCell.identifier)
+        rootView.bannerViewCollection.dataSource = self
+        rootView.bannerViewCollection.delegate = self
     }
     
     private func didTapNextBtn() {
@@ -46,9 +49,7 @@ final class PizzaListVC: UIViewController {
             self.navigationController?.pushViewController(profileInfoListVC, animated: true)
         }
     }
-    
 }
-
 
 extension PizzaListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,12 +67,33 @@ extension PizzaListVC: UITableViewDataSource {
     }
 }
 
-
 extension PizzaListVC : UITableViewDelegate {
     
     
     
 }
+
+
+extension PizzaListVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        pizzaViewModel.bannerImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdvertisementBannerCollectionCell.identifier, for: indexPath) as! AdvertisementBannerCollectionCell
+        let bannerImage = pizzaViewModel.bannerImages[indexPath.row]
+        print("1111-2", bannerImage)
+        cell.set(image: bannerImage ?? UIImage())
+        return cell
+    }
+}
+
+extension PizzaListVC: UICollectionViewDelegate {
+    
+    
+}
+
+
 
 extension PizzaListVC: PizzaListHomeViewDelegate {
     func tapToNextScreen() {
