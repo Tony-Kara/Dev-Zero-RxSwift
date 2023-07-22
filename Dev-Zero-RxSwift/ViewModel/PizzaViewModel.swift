@@ -8,24 +8,25 @@
 import Foundation
 import UIKit
 
- class PizzaViewModel {
-  
-   let apiService = ApiService()
-   var menuItems: [MenuItem] = [MenuItem]()
-   var bannerImages : [UIImage?] = [UIImage(named: "Banner1"), UIImage(named: "Banner2"), UIImage(named: "Banner3")]
-
+class PizzaViewModel {
     
-     func loadMenuItems(_ completion: @escaping ([MenuItem]) -> Void) {
+    let apiService = ApiService()
+    var menuItems: [MenuItem] = [MenuItem]()
+    var bannerImages : [UIImage?] = [UIImage(named: "Banner1"), UIImage(named: "Banner2"), UIImage(named: "Banner3")]
+    let drinks = [ "Pepsi", "Cola", "Sprite", "Ice Tea" ]
+    
+    
+    func loadMenuItems(_ completion: @escaping ([MenuItem]) -> Void) {
         apiService.getMenu { items in
             self.menuItems = items
             completion(items)
         }
     }
     
-     func getProductImage(with url: URL,  _ completion: @escaping (UIImage) -> Void) {
-         apiService.getImage(url: url) { productImage in
-             completion(productImage)
-         }
-     }
+    func getProductImage(with url: URL,  _ completion: @escaping (UIImage) -> Void) {
+        apiService.getImage(url: url) { productImage in
+            completion(productImage)
+        }
+    }
     
 }

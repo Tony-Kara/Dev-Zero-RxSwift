@@ -23,6 +23,7 @@
 		9682D2372A6687D400CE5C24 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2362A6687D400CE5C24 /* Extensions.swift */; };
 		9682D23A2A669CD600CE5C24 /* PizzaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2392A669CD600CE5C24 /* PizzaViewModel.swift */; };
 		96CDD5D12A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD5D02A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift */; };
+		96CDD5D32A6BBE6E00A8E1F8 /* DrinksToGoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD5D22A6BBE6E00A8E1F8 /* DrinksToGoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		9682D2362A6687D400CE5C24 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9682D2392A669CD600CE5C24 /* PizzaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewModel.swift; sourceTree = "<group>"; };
 		96CDD5D02A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementBannerCollectionCell.swift; sourceTree = "<group>"; };
+		96CDD5D22A6BBE6E00A8E1F8 /* DrinksToGoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksToGoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				96CDD5D02A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift */,
 				9682D2312A666AC800CE5C24 /* MenuCatCellFlowLayout.swift */,
 				9682D2332A66849D00CE5C24 /* PizzaInfoTableViewCell.swift */,
+				96CDD5D22A6BBE6E00A8E1F8 /* DrinksToGoTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				9682D2092A665D8300CE5C24 /* AppDelegate.swift in Sources */,
 				9682D20B2A665D8300CE5C24 /* SceneDelegate.swift in Sources */,
 				9682D21E2A665EE200CE5C24 /* Model.swift in Sources */,
+				96CDD5D32A6BBE6E00A8E1F8 /* DrinksToGoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
