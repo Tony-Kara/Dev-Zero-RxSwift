@@ -64,28 +64,25 @@ final class PizzaListVC: UIViewController {
     private func loadCategoryItems() {
         if !self.menuItems.isEmpty {
             for menuItem in menuItems {
-                if menuItem.category == .beverage {
-                    let beverage = CategoryTypes(id: 1, menuType: .Beverage, category: menuItem.category.rawValue)
-                    pizzaViewModel.beverage = beverage
-                }
-                
-                if menuItem.category == .combo {
-                    let combo = CategoryTypes(id: 2, menuType: .Combo, category: menuItem.category.rawValue)
-                    pizzaViewModel.combo = combo
-                    
-                }
-                
-                if menuItem.category == .dessert {
-                    let dessert = CategoryTypes(id: 3, menuType: .Dessert, category: menuItem.category.rawValue)
-                    pizzaViewModel.dessert = dessert
-                    
-                }
-                
-                if menuItem.category == .pizza {
+                switch menuItem.category {
+                case .pizza:
                     let pizza = CategoryTypes(id: 4, menuType: .Pizza, category: menuItem.category.rawValue)
                     pizzaViewModel.pizza = pizza
+                case .combo:
+                    let combo = CategoryTypes(id: 2, menuType: .Combo, category: menuItem.category.rawValue)
+                    pizzaViewModel.combo = combo
+                case .beverage:
+                    let beverage = CategoryTypes(id: 1, menuType: .Beverage, category: menuItem.category.rawValue)
+                    pizzaViewModel.beverage = beverage
+                case .dessert:
+                    let dessert = CategoryTypes(id: 3, menuType: .Dessert, category: menuItem.category.rawValue)
+                    pizzaViewModel.dessert = dessert
+                case .others:
+                    let others = CategoryTypes(id: 0, menuType: .Others, category: "Others")
+                    pizzaViewModel.others = others
                 }
             }
+            
             if let pizza = pizzaViewModel.pizza {
                 allCartegoryTypes.append(pizza)
             }
@@ -102,7 +99,9 @@ final class PizzaListVC: UIViewController {
                 allCartegoryTypes.append(dessert)
             }
             
-            allCartegoryTypes.append(pizzaViewModel.others)
+            if let others = pizzaViewModel.others {
+                allCartegoryTypes.append(others)
+            }
         }
     }
     
