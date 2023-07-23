@@ -126,7 +126,7 @@ final class PizzaInfoTableViewCell: UITableViewCell {
     
     //MARK: - Public Function
     
-    func configure(model:MenuItem, image:UIImage) {
+    func configure(model: MenuItem, image:UIImage) {
         DispatchQueue.main.async { [self] in
             pizzaImageView.image = image
             pizzaNameLabel.text = model.name

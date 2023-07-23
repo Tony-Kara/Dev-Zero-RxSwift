@@ -34,5 +34,4 @@ class PizzaViewModel {
             completion(productImage)
         }
     }
-    
 }

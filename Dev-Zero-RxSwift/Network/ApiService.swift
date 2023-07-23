@@ -12,7 +12,6 @@ protocol ApiNetworkingService {
     func getImage(url:URL, _ completion: @escaping (UIImage) -> Void)
 }
 
-
 final class ApiService: ApiNetworkingService {
    
     let session = URLSession.shared
@@ -23,7 +22,6 @@ final class ApiService: ApiNetworkingService {
                 guard let data = data,
                       let response =  try? JSONDecoder().decode([MenuItem].self, from: data)
                 else {
-                    print("111-5 error")
                     completion([])
                     return
                 }
@@ -41,6 +39,4 @@ final class ApiService: ApiNetworkingService {
             }
         }.resume()
     }
-    
-    
 }

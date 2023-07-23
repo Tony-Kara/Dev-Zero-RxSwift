@@ -14,7 +14,7 @@ protocol PizzaListHomeViewDelegate: AnyObject {
 
 final class PizzaListHomeView: UIView {
     
-    weak var delegate: PizzaListHomeViewDelegate?
+     weak var delegate: PizzaListHomeViewDelegate?
     
     // MARK: - Private properties
     
@@ -58,7 +58,7 @@ final class PizzaListHomeView: UIView {
     
     var onNextScreenTapped : (() -> ())?
     
-     lazy var bannerViewCollection: UICollectionView = {
+    lazy var bannerViewCollection: UICollectionView = {
         let layout = BannerCellFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
@@ -84,8 +84,6 @@ final class PizzaListHomeView: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-    
-  
     
     //MARK: - Init
     
@@ -142,11 +140,5 @@ final class PizzaListHomeView: UIView {
             tableView.widthAnchor.constraint(equalTo: backgroundView.widthAnchor),
             tableView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor)
         ])
-        
     }
-    
-    
-    
-    
-    
 }

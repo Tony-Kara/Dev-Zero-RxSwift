@@ -56,6 +56,7 @@ final class MenuCatergoryCell: UICollectionViewCell {
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = UIColor.hammer_menuCat_borderColor.cgColor
     }
+    
    //MARK: - Private functions
     
     private func updateViewColors() {

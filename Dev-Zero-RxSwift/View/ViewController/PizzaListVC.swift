@@ -11,9 +11,9 @@ import UIKit
 final class PizzaListVC: UIViewController {
     
     private let rootView = PizzaListHomeView()
-    let pizzaViewModel = PizzaViewModel()
-    private var loading =  true
-    var menuItems = [MenuItem]()  {
+    private lazy var pizzaViewModel = PizzaViewModel()
+    
+    private lazy var menuItems = [MenuItem]()  {
         didSet {
             DispatchQueue.main.async {
                 self.rootView.tableView.reloadData()
@@ -22,7 +22,7 @@ final class PizzaListVC: UIViewController {
         }
     }
     
-    var allCartegoryTypes = [CategoryTypes]() {
+    private lazy var allCartegoryTypes = [CategoryTypes]() {
         didSet {
             DispatchQueue.main.async {
                 self.rootView.menuCatergoryCollectionView.reloadData()
@@ -58,11 +58,10 @@ final class PizzaListVC: UIViewController {
     private func loadMenuItems() {
         pizzaViewModel.loadMenuItems { items in
             self.menuItems = items
-            print("1111-4", items.count)
         }
     }
     
-    func loadCategoryItems() {
+    private func loadCategoryItems() {
         if !self.menuItems.isEmpty {
             for menuItem in menuItems {
                 if menuItem.category == .beverage {
