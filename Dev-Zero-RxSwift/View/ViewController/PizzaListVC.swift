@@ -157,9 +157,11 @@ extension PizzaListVC: UITableViewDataSource {
 extension PizzaListVC : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let menuItem = self.menuItems[indexPath.item]
-        print("The current tapped pizza is \(menuItem.name)")
+        if indexPath.section == 0 {
+            tableView.deselectRow(at: indexPath, animated: true)
+            let menuItem = self.menuItems[indexPath.item]
+            print("The current tapped pizza is \(menuItem.name)")
+        }
     }
 }
 
