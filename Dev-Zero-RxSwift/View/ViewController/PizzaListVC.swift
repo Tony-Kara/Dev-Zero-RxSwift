@@ -66,24 +66,24 @@ final class PizzaListVC: UIViewController {
         if !self.menuItems.isEmpty {
             for menuItem in menuItems {
                 if menuItem.category == .beverage {
-                    let beverage = CategoryTypes(id: 1, menuType: .Beverage, category: menuItem.category.rawValue, isSelected: false)
+                    let beverage = CategoryTypes(id: 1, menuType: .Beverage, category: menuItem.category.rawValue)
                     pizzaViewModel.beverage = beverage
                 }
                 
                 if menuItem.category == .combo {
-                    let combo = CategoryTypes(id: 2, menuType: .Combo, category: menuItem.category.rawValue, isSelected: false)
+                    let combo = CategoryTypes(id: 2, menuType: .Combo, category: menuItem.category.rawValue)
                     pizzaViewModel.combo = combo
                     
                 }
                 
                 if menuItem.category == .dessert {
-                    let dessert = CategoryTypes(id: 3, menuType: .Dessert, category: menuItem.category.rawValue, isSelected: false)
+                    let dessert = CategoryTypes(id: 3, menuType: .Dessert, category: menuItem.category.rawValue)
                     pizzaViewModel.dessert = dessert
                     
                 }
                 
                 if menuItem.category == .pizza {
-                    let pizza = CategoryTypes(id: 4, menuType: .Pizza, category: menuItem.category.rawValue, isSelected: false)
+                    let pizza = CategoryTypes(id: 4, menuType: .Pizza, category: menuItem.category.rawValue)
                     pizzaViewModel.pizza = pizza
                 }
             }

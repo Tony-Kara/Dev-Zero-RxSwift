@@ -16,7 +16,7 @@ class PizzaViewModel {
     let drinks = [ "Pepsi", "Cola", "Sprite", "Ice Tea" ]
     
    
-    var others = CategoryTypes(id: 0, menuType: .Others, category: "Others", isSelected: true)
+    var others = CategoryTypes(id: 0, menuType: .Others, category: "Others")
     var pizza: CategoryTypes?
     var combo: CategoryTypes?
     var beverage: CategoryTypes?

@@ -26,13 +26,11 @@ class CategoryTypes {
     let id: Int
     let menuType: MenuType?
     let category: String
-    let isSelected: Bool
     
-    init(id: Int, menuType: MenuType?, category: String, isSelected: Bool) {
+    init(id: Int, menuType: MenuType?, category: String) {
         self.id = id
         self.menuType = menuType
         self.category = category
-        self.isSelected = isSelected
     }
 }
 

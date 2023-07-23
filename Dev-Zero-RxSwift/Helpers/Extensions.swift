@@ -74,7 +74,7 @@ extension UIImage {
 extension CALayer {
     func addDropShadowBottom(_ opacity: Float, radius: CGFloat) {
       shadowColor = UIColor.black.cgColor
-      shadowOffset = CGSize(width: 0, height: 1)
+      shadowOffset = CGSize(width: 1, height: 1)
       shadowRadius = radius
       shadowOpacity = opacity
     }

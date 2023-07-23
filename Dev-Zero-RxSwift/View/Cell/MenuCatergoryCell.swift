@@ -26,8 +26,6 @@ final class MenuCatergoryCell: UICollectionViewCell {
         return iconImageView
     }()
     
-    private var selection: Bool = false
-    
     override var isSelected: Bool {
         didSet {
             updateViewColors()
@@ -51,11 +49,12 @@ final class MenuCatergoryCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.layer.cornerRadius = 8
+        contentView.layer.cornerRadius = 16
         if #available(iOS 13.0, *) {
-          contentView.layer.cornerCurve = .continuous
+            contentView.layer.cornerCurve = .circular
         }
-        contentView.layer.addDropShadowBottom(0.1, radius: 3)
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.hammer_menuCat_borderColor.cgColor
     }
    //MARK: - Private functions
     
@@ -73,8 +72,6 @@ final class MenuCatergoryCell: UICollectionViewCell {
     func insertData(categoryType: CategoryTypes) {
         contentView.addSubview(categoryLabel)
         categoryLabel.text =  categoryType.menuType?.title
-        selection = categoryType.isSelected
-        isSelected = categoryType.isSelected
         
         if let icon = categoryType.menuType?.icon {
             contentView.addSubview(iconImageView)
@@ -100,5 +97,3 @@ final class MenuCatergoryCell: UICollectionViewCell {
         }
     }
 }
-
-
