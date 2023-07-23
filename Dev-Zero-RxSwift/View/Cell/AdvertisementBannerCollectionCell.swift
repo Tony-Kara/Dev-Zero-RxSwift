@@ -7,11 +7,12 @@
 
 import UIKit
 
- class AdvertisementBannerCollectionCell: UICollectionViewCell {
+class AdvertisementBannerCollectionCell: UICollectionViewCell {
     static let identifier = "BannerCollectionCell"
+    
     //MARK: - Private Properties
     
-     private lazy var imageView: UIImageView = {
+    private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true

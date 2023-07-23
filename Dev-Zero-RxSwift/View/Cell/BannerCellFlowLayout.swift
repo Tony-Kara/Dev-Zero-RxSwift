@@ -33,6 +33,4 @@ final class BannerCellFlowLayout: UICollectionViewFlowLayout {
         }
         
     }
-    
-    
 }

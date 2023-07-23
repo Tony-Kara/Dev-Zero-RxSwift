@@ -40,7 +40,7 @@ final class PizzaListVC: UIViewController {
         didTapNextBtn()
         loadMenuItems()
         rootView.delegate = self
-       
+        
         rootView.tableView.register(PizzaInfoTableViewCell.self, forCellReuseIdentifier: PizzaInfoTableViewCell.identifier)
         rootView.tableView.register(DrinksToGoTableViewCell.self, forCellReuseIdentifier: DrinksToGoTableViewCell.identifier)
         rootView.tableView.delegate = self
@@ -103,20 +103,7 @@ final class PizzaListVC: UIViewController {
             }
             
             allCartegoryTypes.append(pizzaViewModel.others)
-            
-            sort(selectedCategory: pizzaViewModel.others)
         }
-    }
-    
-    private func sort(selectedCategory: CategoryTypes) {
-    //    selectCategory(selectedCategory)
-    }
-    
-    private func selectCategory(_ selectedCategory: CategoryTypes) {
-        let indexPath: IndexPath = IndexPath(row: selectedCategory.id, section: 0)
-        guard indexPath.row < rootView.menuCatergoryCollectionView.numberOfItems(inSection: indexPath.section) else {return}
-
-        rootView.menuCatergoryCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .top)
     }
     
     private func didTapNextBtn() {
@@ -173,22 +160,20 @@ extension PizzaListVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let menuItem = self.menuItems[indexPath.item]
+        print("The current tapped pizza is \(menuItem.name)")
     }
 }
-
 
 extension PizzaListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == rootView.bannerViewCollection {
-           return pizzaViewModel.bannerImages.count
+            return pizzaViewModel.bannerImages.count
         }
         
         else {
             return allCartegoryTypes.count
         }
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -205,27 +190,25 @@ extension PizzaListVC: UICollectionViewDataSource {
             cell.insertData(categoryType: categoryItems)
             return cell
         }
-        
-        
     }
 }
 
 extension PizzaListVC: UICollectionViewDelegate {
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case rootView.menuCatergoryCollectionView:
+            let selectedCategory = allCartegoryTypes[indexPath.item]
+            print("The current tapped category is \(String(describing: selectedCategory.menuType?.title))")
+        default:
+            break;
+        }
+    }
 }
-
-
 
 extension PizzaListVC: PizzaListHomeViewDelegate {
     func tapToNextScreen() {
         let profileInfoListVC = ProfileInfoVC()
         self.navigationController?.pushViewController(profileInfoListVC, animated: true)
     }
-}
-
-
-struct Profile {
-    let name: String
-    let imageName: String
 }

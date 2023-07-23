@@ -14,7 +14,7 @@ protocol PizzaListHomeViewDelegate: AnyObject {
 
 final class PizzaListHomeView: UIView {
     
-     weak var delegate: PizzaListHomeViewDelegate?
+    weak var delegate: PizzaListHomeViewDelegate?
     
     // MARK: - Private properties
     

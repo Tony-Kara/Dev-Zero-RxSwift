@@ -31,5 +31,3 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         setViewControllers([pizzaListNavVC,profileInfoNavVC], animated: false)
     }
 }
-
-

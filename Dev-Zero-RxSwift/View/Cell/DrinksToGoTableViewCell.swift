@@ -11,9 +11,9 @@ import UIKit
 
 final class DrinksToGoTableViewCell: UITableViewCell {
     static let identifier = "DrinksTableViewCell"
-  
- 
-      var drinksNameLabel: UILabel = {
+    
+    
+    var drinksNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.textColor = UIColor.hammer_TextColor_pizzaPrice

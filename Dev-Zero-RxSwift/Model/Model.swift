@@ -35,7 +35,7 @@ class CategoryTypes {
 }
 
 enum MenuType: CaseIterable {
-    case Pizza, Combo, Beverage , Dessert, Others
+case Pizza, Combo, Beverage , Dessert, Others
     
     var icon: String? {
         switch self {

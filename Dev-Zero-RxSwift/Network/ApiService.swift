@@ -13,7 +13,7 @@ protocol ApiNetworkingService {
 }
 
 final class ApiService: ApiNetworkingService {
-   
+    
     let session = URLSession.shared
     func getMenu(_ completion: @escaping ([MenuItem]) -> ()) {
         let request = URLRequest(url: URL(string: "https://api.npoint.io/a425e12999c51acc8696")!)

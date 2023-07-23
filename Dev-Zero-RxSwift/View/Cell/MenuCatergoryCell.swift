@@ -31,7 +31,7 @@ final class MenuCatergoryCell: UICollectionViewCell {
             updateViewColors()
         }
     }
-   
+    
     private var defaultTextColor: UIColor = .black
     private var highlightedTextColor: UIColor = .hammer_TextColor_pizzaPrice
     private var defaultBackgroundColor: UIColor = .white
@@ -57,7 +57,7 @@ final class MenuCatergoryCell: UICollectionViewCell {
         contentView.layer.borderColor = UIColor.hammer_menuCat_borderColor.cgColor
     }
     
-   //MARK: - Private functions
+    //MARK: - Private functions
     
     private func updateViewColors() {
         if isSelected {
@@ -68,6 +68,7 @@ final class MenuCatergoryCell: UICollectionViewCell {
             contentView.backgroundColor = defaultBackgroundColor
         }
     }
+    
     //MARK: - Public functions
     
     func insertData(categoryType: CategoryTypes) {
@@ -80,7 +81,7 @@ final class MenuCatergoryCell: UICollectionViewCell {
             iconImageView.image = image
             
             NSLayoutConstraint.activate([
-            
+                
                 iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
                 iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
                 iconImageView.heightAnchor.constraint(equalToConstant: 24),

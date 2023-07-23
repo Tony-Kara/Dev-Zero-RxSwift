@@ -30,7 +30,7 @@ final class PizzaInfoTableViewCell: UITableViewCell {
         return imageView
     }()
     
-      var pizzaNameLabel: UILabel = {
+    var pizzaNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.textColor = .black
@@ -55,7 +55,6 @@ final class PizzaInfoTableViewCell: UITableViewCell {
         return label
     }()
     
-    
     //MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -75,8 +74,6 @@ final class PizzaInfoTableViewCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
         contentView.backgroundColor = .clear
-        
-        
         containerView.layer.cornerRadius = 16
     }
     
@@ -87,38 +84,37 @@ final class PizzaInfoTableViewCell: UITableViewCell {
             containerView.addSubview($0)
         }
         pizzaPriceView.addSubview(pizzaPriceLabel)
-       
+        
         setupInitialLayout()
     }
     
     private func setupInitialLayout() {
         
         NSLayoutConstraint.activate([
-
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-
+            
             pizzaImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 24),
             pizzaImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
             pizzaImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -24),
             pizzaImageView.heightAnchor.constraint(equalToConstant: 132),
             pizzaImageView.widthAnchor.constraint(equalToConstant: 132),
-
+            
             pizzaNameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
             pizzaNameLabel.leadingAnchor.constraint(equalTo: pizzaImageView.trailingAnchor, constant: 32),
-
+            
             pizzaDescriptionLabel.topAnchor.constraint(equalTo: pizzaNameLabel.bottomAnchor, constant: 8),
             pizzaDescriptionLabel.leadingAnchor.constraint(equalTo: pizzaNameLabel.leadingAnchor),
             pizzaDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-
+            
             pizzaPriceView.topAnchor.constraint(equalTo: pizzaDescriptionLabel.bottomAnchor, constant: 16),
             pizzaPriceView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
             pizzaPriceView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -24),
             pizzaPriceView.heightAnchor.constraint(equalToConstant: 32),
             pizzaPriceView.widthAnchor.constraint(equalToConstant: 87),
-
+            
             pizzaPriceLabel.centerXAnchor.constraint(equalTo: pizzaPriceView.centerXAnchor),
             pizzaPriceLabel.centerYAnchor.constraint(equalTo: pizzaPriceView.centerYAnchor)
         ])
@@ -135,9 +131,7 @@ final class PizzaInfoTableViewCell: UITableViewCell {
         }
     }
     
-    
     func configure(model: MenuItem) {
         pizzaNameLabel.text = model.name
     }
-    
 }
