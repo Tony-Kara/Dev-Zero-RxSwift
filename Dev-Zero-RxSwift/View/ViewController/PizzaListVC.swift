@@ -10,7 +10,6 @@ import UIKit
 
 final class PizzaListVC: UIViewController {
     
-    
     private let rootView = PizzaListHomeView()
     let pizzaViewModel = PizzaViewModel()
     private var loading =  true
@@ -19,9 +18,17 @@ final class PizzaListVC: UIViewController {
             DispatchQueue.main.async {
                 self.rootView.tableView.reloadData()
             }
+            loadCategoryItems()
         }
     }
     
+    var allCartegoryTypes = [CategoryTypes]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.rootView.menuCatergoryCollectionView.reloadData()
+            }
+        }
+    }
     
     override func loadView() {
         super.loadView()
@@ -31,17 +38,86 @@ final class PizzaListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         didTapNextBtn()
+        loadMenuItems()
         rootView.delegate = self
-        pizzaViewModel.loadMenuItems { items in
-            self.menuItems = items
-        }
+       
         rootView.tableView.register(PizzaInfoTableViewCell.self, forCellReuseIdentifier: PizzaInfoTableViewCell.identifier)
         rootView.tableView.register(DrinksToGoTableViewCell.self, forCellReuseIdentifier: DrinksToGoTableViewCell.identifier)
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
+        
         rootView.bannerViewCollection.register(AdvertisementBannerCollectionCell.self, forCellWithReuseIdentifier: AdvertisementBannerCollectionCell.identifier)
         rootView.bannerViewCollection.dataSource = self
         rootView.bannerViewCollection.delegate = self
+        
+        rootView.menuCatergoryCollectionView.register(MenuCatergoryCell.self, forCellWithReuseIdentifier: MenuCatergoryCell.identifier)
+        rootView.menuCatergoryCollectionView.dataSource = self
+        rootView.menuCatergoryCollectionView.delegate = self
+    }
+    
+    private func loadMenuItems() {
+        pizzaViewModel.loadMenuItems { items in
+            self.menuItems = items
+            print("1111-4", items.count)
+        }
+    }
+    
+    func loadCategoryItems() {
+        if !self.menuItems.isEmpty {
+            for menuItem in menuItems {
+                if menuItem.category == .beverage {
+                    let beverage = CategoryTypes(id: 1, menuType: .Beverage, category: menuItem.category.rawValue, isSelected: false)
+                    pizzaViewModel.beverage = beverage
+                }
+                
+                if menuItem.category == .combo {
+                    let combo = CategoryTypes(id: 2, menuType: .Combo, category: menuItem.category.rawValue, isSelected: false)
+                    pizzaViewModel.combo = combo
+                    
+                }
+                
+                if menuItem.category == .dessert {
+                    let dessert = CategoryTypes(id: 3, menuType: .Dessert, category: menuItem.category.rawValue, isSelected: false)
+                    pizzaViewModel.dessert = dessert
+                    
+                }
+                
+                if menuItem.category == .pizza {
+                    let pizza = CategoryTypes(id: 4, menuType: .Pizza, category: menuItem.category.rawValue, isSelected: false)
+                    pizzaViewModel.pizza = pizza
+                }
+            }
+            if let pizza = pizzaViewModel.pizza {
+                allCartegoryTypes.append(pizza)
+            }
+            
+            if let combo = pizzaViewModel.combo {
+                allCartegoryTypes.append(combo)
+            }
+            
+            if let beverage = pizzaViewModel.beverage {
+                allCartegoryTypes.append(beverage)
+            }
+            
+            if let dessert = pizzaViewModel.dessert {
+                allCartegoryTypes.append(dessert)
+            }
+            
+            allCartegoryTypes.append(pizzaViewModel.others)
+            
+            sort(selectedCategory: pizzaViewModel.others)
+        }
+    }
+    
+    private func sort(selectedCategory: CategoryTypes) {
+    //    selectCategory(selectedCategory)
+    }
+    
+    private func selectCategory(_ selectedCategory: CategoryTypes) {
+        let indexPath: IndexPath = IndexPath(row: selectedCategory.id, section: 0)
+        guard indexPath.row < rootView.menuCatergoryCollectionView.numberOfItems(inSection: indexPath.section) else {return}
+
+        rootView.menuCatergoryCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .top)
     }
     
     private func didTapNextBtn() {
@@ -98,21 +174,40 @@ extension PizzaListVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let menuItem = self.menuItems[indexPath.item]
-        print("1111-3", menuItem)
     }
 }
 
 
 extension PizzaListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        pizzaViewModel.bannerImages.count
+        
+        if collectionView == rootView.bannerViewCollection {
+           return pizzaViewModel.bannerImages.count
+        }
+        
+        else {
+            return allCartegoryTypes.count
+        }
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdvertisementBannerCollectionCell.identifier, for: indexPath) as! AdvertisementBannerCollectionCell
-        let bannerImage = pizzaViewModel.bannerImages[indexPath.row]
-        cell.set(image: bannerImage ?? UIImage())
-        return cell
+        
+        if collectionView == rootView.bannerViewCollection {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdvertisementBannerCollectionCell.identifier, for: indexPath) as! AdvertisementBannerCollectionCell
+            let bannerImage = pizzaViewModel.bannerImages[indexPath.row]
+            cell.set(image: bannerImage ?? UIImage())
+            return cell
+        }
+        else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCatergoryCell.identifier, for: indexPath) as! MenuCatergoryCell
+            let categoryItems = allCartegoryTypes[indexPath.row]
+            cell.insertData(categoryType: categoryItems)
+            return cell
+        }
+        
+        
     }
 }
 

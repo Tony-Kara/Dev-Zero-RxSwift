@@ -24,6 +24,7 @@
 		9682D23A2A669CD600CE5C24 /* PizzaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682D2392A669CD600CE5C24 /* PizzaViewModel.swift */; };
 		96CDD5D12A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD5D02A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift */; };
 		96CDD5D32A6BBE6E00A8E1F8 /* DrinksToGoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD5D22A6BBE6E00A8E1F8 /* DrinksToGoTableViewCell.swift */; };
+		96CDD5D52A6BF6B400A8E1F8 /* MenuCatergoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDD5D42A6BF6B400A8E1F8 /* MenuCatergoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		9682D2392A669CD600CE5C24 /* PizzaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewModel.swift; sourceTree = "<group>"; };
 		96CDD5D02A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementBannerCollectionCell.swift; sourceTree = "<group>"; };
 		96CDD5D22A6BBE6E00A8E1F8 /* DrinksToGoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksToGoTableViewCell.swift; sourceTree = "<group>"; };
+		96CDD5D42A6BF6B400A8E1F8 /* MenuCatergoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCatergoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				9682D22F2A66651700CE5C24 /* BannerCellFlowLayout.swift */,
+				96CDD5D42A6BF6B400A8E1F8 /* MenuCatergoryCell.swift */,
 				96CDD5D02A6B978600A8E1F8 /* AdvertisementBannerCollectionCell.swift */,
 				9682D2312A666AC800CE5C24 /* MenuCatCellFlowLayout.swift */,
 				9682D2332A66849D00CE5C24 /* PizzaInfoTableViewCell.swift */,
@@ -233,6 +236,7 @@
 				9682D2302A66651700CE5C24 /* BannerCellFlowLayout.swift in Sources */,
 				9682D23A2A669CD600CE5C24 /* PizzaViewModel.swift in Sources */,
 				9682D22A2A66609900CE5C24 /* TabBarController.swift in Sources */,
+				96CDD5D52A6BF6B400A8E1F8 /* MenuCatergoryCell.swift in Sources */,
 				9682D22E2A6662C400CE5C24 /* PizzaListHomeView.swift in Sources */,
 				9682D22C2A6660B900CE5C24 /* ProfileInfoVC.swift in Sources */,
 				9682D2372A6687D400CE5C24 /* Extensions.swift in Sources */,

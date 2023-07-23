@@ -15,6 +15,12 @@ class PizzaViewModel {
     var bannerImages : [UIImage?] = [UIImage(named: "Banner1"), UIImage(named: "Banner2"), UIImage(named: "Banner3")]
     let drinks = [ "Pepsi", "Cola", "Sprite", "Ice Tea" ]
     
+   
+    var others = CategoryTypes(id: 0, menuType: .Others, category: "Others", isSelected: true)
+    var pizza: CategoryTypes?
+    var combo: CategoryTypes?
+    var beverage: CategoryTypes?
+    var dessert: CategoryTypes?
     
     func loadMenuItems(_ completion: @escaping ([MenuItem]) -> Void) {
         apiService.getMenu { items in
